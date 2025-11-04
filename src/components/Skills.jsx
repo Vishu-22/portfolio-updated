@@ -52,29 +52,43 @@ const Skills = () => {
           {skillCategories.map((category, catIndex) => (
             <div
               key={catIndex}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-shadow duration-300"
+              className="group bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 relative overflow-hidden animate-fade-in"
+              style={{ animationDelay: `${catIndex * 0.1}s` }}
             >
-              <div className="text-4xl mb-4 text-center">{category.icon}</div>
-              <h3 className="text-2xl font-bold text-center text-gray-800 mb-6">
-                {category.title}
-              </h3>
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between mb-2">
-                      <span className="font-semibold text-gray-700">
-                        {skill.name}
-                      </span>
-                      <span className="text-gray-500">{skill.level}%</span>
+              {/* Gradient background on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10">
+                <div className="text-5xl mb-4 text-center transform group-hover:scale-110 transition-transform duration-300">
+                  {category.icon}
+                </div>
+                <h3 className="text-2xl font-bold text-center text-gray-800 mb-6 group-hover:text-gradient transition-colors duration-300">
+                  {category.title}
+                </h3>
+                <div className="space-y-5">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div 
+                      key={skillIndex}
+                      className="transform hover:scale-105 transition-transform duration-200"
+                    >
+                      <div className="flex justify-between mb-2">
+                        <span className="font-semibold text-gray-700 group-hover:text-gray-900">
+                          {skill.name}
+                        </span>
+                        <span className="text-gray-500 font-medium">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
+                        <div
+                          className={`bg-gradient-to-r ${skill.color} h-3 rounded-full transition-all duration-1000 ease-out relative overflow-hidden`}
+                          style={{ width: `${skill.level}%` }}
+                        >
+                          {/* Shimmer effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                      <div
-                        className={`bg-gradient-to-r ${skill.color} h-3 rounded-full transition-all duration-1000 ease-out`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           ))}

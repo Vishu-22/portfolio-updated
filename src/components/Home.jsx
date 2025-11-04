@@ -40,29 +40,40 @@ const Home = () => {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-gradient">Hi, I'm</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+            <span className="text-gradient text-shadow">Hi, I'm</span>
             <br />
-            <span className="text-gray-800">Karan</span>
+            <span className="text-gray-800 text-shadow">Karan</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up font-light leading-relaxed">
             I build beautiful, functional, and user-friendly web experiences
             with modern technologies
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
             <a
               href="#projects"
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-xl font-semibold overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
             >
-              View My Work
+              <span className="relative z-10 flex items-center gap-2">
+                View My Work
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </a>
             <a
               href="#contact"
-              className="px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1"
+              className="group relative px-8 py-4 bg-white border-2 border-blue-600 text-blue-600 rounded-xl font-semibold overflow-hidden hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:scale-105 transition-all duration-300 transform hover:-translate-y-1 hover:border-purple-600"
             >
-              Get In Touch
+              <span className="relative z-10 flex items-center gap-2">
+                Get In Touch
+                <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </span>
             </a>
           </div>
 
